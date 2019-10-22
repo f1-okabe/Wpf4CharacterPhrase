@@ -4,7 +4,7 @@ using System.Text;
 
 namespace _4CharacterPhrase
 {
-    class OriginalData
+    public class Word
     {
         public string Value { get; set; }
 

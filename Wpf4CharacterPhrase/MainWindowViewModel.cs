@@ -8,46 +8,36 @@ namespace Wpf4CharacterPhrase
 {
     public class MainWindowViewModel: ViewModelBase
     {
-        public ReactiveProperty<DisplayEntity> Display { get; set; } = new ReactiveProperty<DisplayEntity>(new DisplayEntity());
+        public ReactiveProperty<BordEntity> Bord { get; set; } = new ReactiveProperty<BordEntity>(new BordEntity());
+
+        public ReactiveCommand BordClickCommand { get; } = new ReactiveCommand();
 
         public MainWindowViewModel()
         {
-            Display.Value.Cells.Add(new CellEntity() { Value = '１' });
-            Display.Value.Cells.Add(new CellEntity() { Value = '２' });
-            Display.Value.Cells.Add(new CellEntity() { Value = '３' });
-            Display.Value.Cells.Add(new CellEntity() { Value = '４' });
-            Display.Value.Cells.Add(new CellEntity() { Value = '５' });
-            Display.Value.Cells.Add(new CellEntity() { Value = '６' });
-            Display.Value.Cells.Add(new CellEntity() { Value = '７' });
-            Display.Value.Cells.Add(new CellEntity() { Value = '８' });
-            Display.Value.Cells.Add(new CellEntity() { Value = '９' });
-            Display.Value.Cells.Add(new CellEntity() { Value = '０' });
-            Display.Value.Cells.Add(new CellEntity() { Value = '１' });
-            Display.Value.Cells.Add(new CellEntity() { Value = '２' });
-            Display.Value.Cells.Add(new CellEntity() { Value = '３' });
-            Display.Value.Cells.Add(new CellEntity() { Value = '４' });
-            Display.Value.Cells.Add(new CellEntity() { Value = '５' });
-            Display.Value.Cells.Add(new CellEntity() { Value = '６' });
-            Display.Value.Cells.Add(new CellEntity() { Value = '７' });
-            Display.Value.Cells.Add(new CellEntity() { Value = '８' });
-            Display.Value.Cells.Add(new CellEntity() { Value = '９' });
-            Display.Value.Cells.Add(new CellEntity() { Value = '０' });
-            Display.Value.Cells.Add(new CellEntity() { Value = '１' });
-            Display.Value.Cells.Add(new CellEntity() { Value = '２' });
-            Display.Value.Cells.Add(new CellEntity() { Value = '３' });
-            Display.Value.Cells.Add(new CellEntity() { Value = '４' });
-            Display.Value.Cells.Add(new CellEntity() { Value = '５' });
-            Display.Value.Cells.Add(new CellEntity() { Value = '６' });
-            Display.Value.Cells.Add(new CellEntity() { Value = '７' });
-            Display.Value.Cells.Add(new CellEntity() { Value = '８' });
-            Display.Value.Cells.Add(new CellEntity() { Value = '９' });
-            Display.Value.Cells.Add(new CellEntity() { Value = '０' });
-            Display.Value.Cells.Add(new CellEntity() { Value = '１' });
-            Display.Value.Cells.Add(new CellEntity() { Value = '２' });
-            Display.Value.Cells.Add(new CellEntity() { Value = '３' });
-            Display.Value.Cells.Add(new CellEntity() { Value = '４' });
-            Display.Value.Cells.Add(new CellEntity() { Value = '５' });
-            Display.Value.Cells.Add(new CellEntity() { Value = '６' });
+            BordClickCommand.Subscribe(x => BordClick(x));
+
+            Bord.Value.SetData();
+        }
+
+        private void BordClick(object entity)
+        {
+            var cell = (CellEntity)entity;
+            if (cell.Status == CellStatus.Completed)
+            {
+                return;
+            }
+
+            if (cell.Status == CellStatus.Selected)
+            {
+                cell.Status = CellStatus.None;
+                return;
+            }
+
+            if (cell.Status == CellStatus.None)
+            {
+                cell.Status = CellStatus.Selected;
+                return;
+            }
         }
     }
 }

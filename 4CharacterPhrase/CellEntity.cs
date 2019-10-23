@@ -12,7 +12,7 @@ namespace _4CharacterPhrase
 
         public int Y { get; set; }
 
-        public int Status { get; set; }
+        public CellStatus Status { get; set; } = CellStatus.None;
 
         public int Color { get; set; }
     }

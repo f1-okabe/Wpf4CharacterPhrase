@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Wpf4CharacterPhrase"
         mc:Ignorable="d"
-        Title="MainWindow" Height="750" Width="700">
+        Title="MainWindow" Height="750" Width="700" x:Name="ViewMain">
     <Grid Height="628" Width="664">
-        <ListView ItemsSource="{Binding Display.Value.Cells}" SelectionMode="Extended" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+        <ListView ItemsSource="{Binding Bord.Value.Cells}" SelectionMode="Extended" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel/>
@@ -16,7 +16,7 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid Width="100" Height="100">
-                        <TextBlock Text="{Binding Value}" FontSize="36" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                        <Button Content="{Binding Value}" Width ="100" Height="100" FontSize="36" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center"  Command="{Binding DataContext.BordClickCommand, ElementName = ViewMain}" CommandParameter="{Binding}"/>
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>

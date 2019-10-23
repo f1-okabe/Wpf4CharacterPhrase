@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Wpf4CharacterPhrase"
         mc:Ignorable="d"
-        Title="MainWindow" Height="750" Width="600">
-    <Grid>
+        Title="MainWindow" Height="750" Width="700">
+    <Grid Height="628" Width="664">
         <ListView ItemsSource="{Binding Display.Value.Cells}" SelectionMode="Extended" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>

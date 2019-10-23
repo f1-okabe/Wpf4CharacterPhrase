@@ -4,7 +4,7 @@ using System.Text;
 
 namespace _4CharacterPhrase
 {
-    public class Cell
+    public class CellEntity
     {
         public char Value { get; set; }
 

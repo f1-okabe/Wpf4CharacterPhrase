@@ -20,9 +20,12 @@ namespace Wpf4CharacterPhrase
     /// </summary>
     public partial class MainWindow : Window
     {
+        private MainWindowViewModel mainWindowViewModel = new MainWindowViewModel();
+
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = this.mainWindowViewModel;
         }
     }
 }

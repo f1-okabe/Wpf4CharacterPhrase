@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using _4CharacterPhrase;
+using ExtensionsLibrary;
 using Reactive.Bindings;
 
 namespace Wpf4CharacterPhrase
@@ -21,23 +22,8 @@ namespace Wpf4CharacterPhrase
 
         private void BordClick(object entity)
         {
-            var cell = (CellEntity)entity;
-            if (cell.Status == CellStatus.Completed)
-            {
-                return;
-            }
-
-            if (cell.Status == CellStatus.Selected)
-            {
-                cell.Status = CellStatus.None;
-                return;
-            }
-
-            if (cell.Status == CellStatus.None)
-            {
-                cell.Status = CellStatus.Selected;
-                return;
-            }
+            ((CellEntity)entity).ChangeStatus();
+            Bord.Value = Bord.Value.DeepCopy();
         }
     }
 }

@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29411.108
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wpf4CharacterPhrase", "Wpf4CharacterPhrase\Wpf4CharacterPhrase.csproj", "{0FB91E54-D295-4866-AF71-CB546C0D0989}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wpf4CharacterPhrase", "Wpf4CharacterPhrase\Wpf4CharacterPhrase.csproj", "{0FB91E54-D295-4866-AF71-CB546C0D0989}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "4CharacterPhrase", "4CharacterPhrase\4CharacterPhrase.csproj", "{5A0562FB-094E-4ABC-9192-C05E4839407D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "4CharacterPhrase", "4CharacterPhrase\4CharacterPhrase.csproj", "{5A0562FB-094E-4ABC-9192-C05E4839407D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExtensionsLibrary", "ExtensionsLibrary\ExtensionsLibrary.csproj", "{4AEB5931-C04E-4050-B727-1A2B03113AC2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{5A0562FB-094E-4ABC-9192-C05E4839407D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5A0562FB-094E-4ABC-9192-C05E4839407D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5A0562FB-094E-4ABC-9192-C05E4839407D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4AEB5931-C04E-4050-B727-1A2B03113AC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4AEB5931-C04E-4050-B727-1A2B03113AC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4AEB5931-C04E-4050-B727-1A2B03113AC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4AEB5931-C04E-4050-B727-1A2B03113AC2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

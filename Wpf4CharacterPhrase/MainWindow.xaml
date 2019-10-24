@@ -7,7 +7,11 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="750" Width="700" x:Name="ViewMain">
     <Grid Height="628" Width="664">
+        <Grid.Resources>
+            <local:CellStatusToBackgroundConverter x:Key="CellStatusConverter"/>
+        </Grid.Resources>
         <ListView ItemsSource="{Binding Bord.Value.Cells}" SelectionMode="Extended" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+            
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel/>
@@ -16,7 +20,7 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid Width="100" Height="100">
-                        <Button Content="{Binding Value}" Width ="100" Height="100" FontSize="36" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center"  Command="{Binding DataContext.BordClickCommand, ElementName = ViewMain}" CommandParameter="{Binding}"/>
+                        <Button Content="{Binding Value}" Width ="100" Height="100" FontSize="36" HorizontalAlignment="Center" Background="{Binding Status, Converter={StaticResource CellStatusConverter}}" VerticalAlignment="Center"  Command="{Binding DataContext.BordClickCommand, ElementName = ViewMain}" CommandParameter="{Binding}"/>
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>

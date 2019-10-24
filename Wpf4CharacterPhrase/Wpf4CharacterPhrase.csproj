@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\4CharacterPhrase\4CharacterPhrase.csproj" />
+    <ProjectReference Include="..\ExtensionsLibrary\ExtensionsLibrary.csproj" />
   </ItemGroup>
 
 </Project>

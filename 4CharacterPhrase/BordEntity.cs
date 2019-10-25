@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace _4CharacterPhrase
 {
@@ -47,6 +48,31 @@ namespace _4CharacterPhrase
         {
             System.Random r = new System.Random();
             return r.Next(maxNumber);
+        }
+
+        public bool IsFourSelecting()
+        {
+            if (Cells.Where(m => m.Status == CellStatus.Selected).Count() == 4)
+            {
+                return true;
+            }
+            return false;
+        }
+        public bool IsCorrectAnswer()
+        {
+            var selectChars = new List<char>();
+            selectChars = Cells.Where(m => m.Status == CellStatus.Selected).Select(m => m.Value).ToList();
+            selectChars.Sort();
+            if (Words.Any(m => m.GetCharSortValue() == new String(selectChars.ToArray()))) return true;
+            return false;
+        }
+        public void ChangeCellsStatusSelectingToCompleted()
+        {
+            Cells.Where(m => m.Status == CellStatus.Selected).ToList().ForEach(m => m.Status = CellStatus.Completed);
+        }
+        public void ChangeCellsStatusSelectingToNone()
+        {
+            Cells.Where(m => m.Status == CellStatus.Selected).ToList().ForEach(m => m.Status = CellStatus.None);
         }
     }
 }

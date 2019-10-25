@@ -14,5 +14,13 @@ namespace _4CharacterPhrase
             returnValue.AddRange(Value.ToCharArray());
             return returnValue;
         }
+
+        public string GetCharSortValue()
+        {
+            var returnValue = new List<char>();
+            returnValue.AddRange(Value.ToCharArray());
+            returnValue.Sort();
+            return new string(returnValue.ToArray());
+        }
     }
 }

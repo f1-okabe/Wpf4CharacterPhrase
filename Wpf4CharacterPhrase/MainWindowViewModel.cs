@@ -22,7 +22,18 @@ namespace Wpf4CharacterPhrase
 
         private void BordClick(object entity)
         {
-            ((CellEntity)entity).ChangeStatus();
+            var cell = (CellEntity)entity;
+
+            if (Bord.Value.IsFourSelecting() == true && cell.Status !=  CellStatus.Selected) return;
+
+            cell.ChangeStatus();
+            Bord.Value = Bord.Value.DeepCopy();
+
+            if (Bord.Value.IsFourSelecting() == false) return;
+
+            if (Bord.Value.IsCorrectAnswer() == false) return;
+
+            Bord.Value.ChangeCellsStatusSelectingToCompleted();
             Bord.Value = Bord.Value.DeepCopy();
         }
     }

@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Windows;
 using _4CharacterPhrase;
 using ExtensionsLibrary;
 using Reactive.Bindings;
@@ -24,7 +26,7 @@ namespace Wpf4CharacterPhrase
         {
             var cell = (CellEntity)entity;
 
-            if (Bord.Value.IsFourSelecting() == true && cell.Status !=  CellStatus.Selected) return;
+            if (Bord.Value.IsFourSelecting() == true && cell.Status !=  CellStatus.Selecting) return;
 
             cell.ChangeStatus();
             Bord.Value = Bord.Value.DeepCopy();
@@ -35,6 +37,11 @@ namespace Wpf4CharacterPhrase
 
             Bord.Value.ChangeCellsStatusSelectingToCompleted();
             Bord.Value = Bord.Value.DeepCopy();
+
+            if (Bord.Value.Cells.Where(m => m.Status != CellStatus.Completed).Count() == 0)
+            {
+                MessageBox.Show("Completed");
+            }
         }
     }
 }

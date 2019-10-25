@@ -23,7 +23,7 @@ namespace _4CharacterPhrase
                 return;
             }
 
-            if (Status == CellStatus.Selected)
+            if (Status == CellStatus.Selecting)
             {
                 Status = CellStatus.None;
                 return;
@@ -31,7 +31,7 @@ namespace _4CharacterPhrase
 
             if (Status == CellStatus.None)
             {
-                Status = CellStatus.Selected;
+                Status = CellStatus.Selecting;
                 return;
             }
         }

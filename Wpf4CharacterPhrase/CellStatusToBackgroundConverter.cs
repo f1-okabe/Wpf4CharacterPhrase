@@ -1,8 +1,6 @@
 ﻿using _4CharacterPhrase;
 using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Text;
 using System.Windows.Data;
 using System.Windows.Media;
 
@@ -11,7 +9,7 @@ namespace Wpf4CharacterPhrase
     public class CellStatusToBackgroundConverter : IValueConverter
     {
         /// <summary>
-        /// bool型を"はい"または"いいえ"に変換するメソッド
+        /// cellStatusをBackGroundの値に変換
         /// </summary>
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
@@ -22,7 +20,7 @@ namespace Wpf4CharacterPhrase
             {
                 case CellStatus.None:
                     return new SolidColorBrush(Colors.White);
-                case CellStatus.Selected:
+                case CellStatus.Selecting:
                     return new SolidColorBrush(Colors.SkyBlue);
                 case CellStatus.Completed:
                     return new SolidColorBrush(Colors.DimGray);
@@ -32,8 +30,6 @@ namespace Wpf4CharacterPhrase
         }
 
         /// <summary>
-        /// "はい"または"いいえ"をbool型に逆変換するメソッド
-        /// 定義しない場合は return null; だけでOK
         /// </summary>
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {

@@ -50,29 +50,43 @@ namespace _4CharacterPhrase
             return r.Next(maxNumber);
         }
 
+        /// <summary>
+        /// 四文字選択されている状態かチェックする
+        /// </summary>
+        /// <returns></returns>
         public bool IsFourSelecting()
         {
-            if (Cells.Where(m => m.Status == CellStatus.Selected).Count() == 4)
+            if (Cells.Where(m => m.Status == CellStatus.Selecting).Count() == 4)
             {
                 return true;
             }
             return false;
         }
+
+        /// <summary>
+        /// 洗濯されている文字が4字熟語になっているかチェックする
+        /// </summary>
+        /// <returns></returns>
         public bool IsCorrectAnswer()
         {
             var selectChars = new List<char>();
-            selectChars = Cells.Where(m => m.Status == CellStatus.Selected).Select(m => m.Value).ToList();
+            selectChars = Cells.Where(m => m.Status == CellStatus.Selecting).Select(m => m.Value).ToList();
             selectChars.Sort();
             if (Words.Any(m => m.GetCharSortValue() == new String(selectChars.ToArray()))) return true;
             return false;
         }
+
+        /// <summary>
+        /// cellsのStatusでSelectingのものをCompletedにする
+        /// </summary>
         public void ChangeCellsStatusSelectingToCompleted()
         {
-            Cells.Where(m => m.Status == CellStatus.Selected).ToList().ForEach(m => m.Status = CellStatus.Completed);
+            Cells.Where(m => m.Status == CellStatus.Selecting).ToList().ForEach(m => m.Status = CellStatus.Completed);
         }
+
         public void ChangeCellsStatusSelectingToNone()
         {
-            Cells.Where(m => m.Status == CellStatus.Selected).ToList().ForEach(m => m.Status = CellStatus.None);
+            Cells.Where(m => m.Status == CellStatus.Selecting).ToList().ForEach(m => m.Status = CellStatus.None);
         }
     }
 }

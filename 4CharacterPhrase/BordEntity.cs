@@ -22,11 +22,11 @@ namespace _4CharacterPhrase
             Words.Add(new WordEntity() { Value = "安楽浄土" });
             Words.Add(new WordEntity() { Value = "暗中模索" });
             Words.Add(new WordEntity() { Value = "阿鼻叫喚" });
-            Words.Add(new WordEntity() { Value = "悪逆無道" });
-            Words.Add(new WordEntity() { Value = "悪口雑言" });
-            Words.Add(new WordEntity() { Value = "唯唯諾諾" });
-            Words.Add(new WordEntity() { Value = "一日千秋" });
-            Words.Add(new WordEntity() { Value = "一罰百戒" });
+            Words.Add(new WordEntity() { Value = "異口同音" });
+            Words.Add(new WordEntity() { Value = "一網打尽" });
+            Words.Add(new WordEntity() { Value = "因果応報" });
+            Words.Add(new WordEntity() { Value = "以心伝心" });
+            Words.Add(new WordEntity() { Value = "意気消沈" });
         }
 
         private void SetCells()

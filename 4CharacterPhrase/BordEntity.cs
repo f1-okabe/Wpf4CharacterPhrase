@@ -7,6 +7,7 @@ namespace _4CharacterPhrase
     public class BordEntity
     {
         public List<CellEntity> Cells { get; set; } = new List<CellEntity>();
+
         public List<WordEntity> Words { get; set; } = new List<WordEntity>();
 
         public void SetData()
@@ -50,11 +51,34 @@ namespace _4CharacterPhrase
             return r.Next(maxNumber);
         }
 
+        public void Click(CellEntity cell)
+        {
+            if (IsFourSelecting() == true && cell.Status != CellStatus.Selecting) return;
+
+            cell.ChangeStatus();
+
+            if (IsFourSelecting() == false) return;
+
+            if (IsCorrectAnswer() == false) return;
+
+            ChangeCellsStatusSelectingToCompleted();
+        }
+
+        public bool IsCompleted()
+        {
+            if (Cells.Where(m => m.Status != CellStatus.Completed).Count() == 0)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
         /// <summary>
         /// 四文字選択されている状態かチェックする
         /// </summary>
         /// <returns></returns>
-        public bool IsFourSelecting()
+        private bool IsFourSelecting()
         {
             if (Cells.Where(m => m.Status == CellStatus.Selecting).Count() == 4)
             {
@@ -67,7 +91,7 @@ namespace _4CharacterPhrase
         /// 洗濯されている文字が4字熟語になっているかチェックする
         /// </summary>
         /// <returns></returns>
-        public bool IsCorrectAnswer()
+        private bool IsCorrectAnswer()
         {
             var selectChars = new List<char>();
             selectChars = Cells.Where(m => m.Status == CellStatus.Selecting).Select(m => m.Value).ToList();
@@ -79,14 +103,9 @@ namespace _4CharacterPhrase
         /// <summary>
         /// cellsのStatusでSelectingのものをCompletedにする
         /// </summary>
-        public void ChangeCellsStatusSelectingToCompleted()
+        private void ChangeCellsStatusSelectingToCompleted()
         {
             Cells.Where(m => m.Status == CellStatus.Selecting).ToList().ForEach(m => m.Status = CellStatus.Completed);
-        }
-
-        public void ChangeCellsStatusSelectingToNone()
-        {
-            Cells.Where(m => m.Status == CellStatus.Selecting).ToList().ForEach(m => m.Status = CellStatus.None);
         }
     }
 }

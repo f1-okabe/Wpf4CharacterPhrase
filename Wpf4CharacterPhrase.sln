@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "4CharacterPhrase", "4Charac
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExtensionsLibrary", "ExtensionsLibrary\ExtensionsLibrary.csproj", "{4AEB5931-C04E-4050-B727-1A2B03113AC2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "4CharacterPhrase.Blazor", "4CharacterPhrase.Blazor\4CharacterPhrase.Blazor.csproj", "{B0C90FDC-40D8-40E3-BBEB-DC569BBC323A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{4AEB5931-C04E-4050-B727-1A2B03113AC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4AEB5931-C04E-4050-B727-1A2B03113AC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4AEB5931-C04E-4050-B727-1A2B03113AC2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0C90FDC-40D8-40E3-BBEB-DC569BBC323A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0C90FDC-40D8-40E3-BBEB-DC569BBC323A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0C90FDC-40D8-40E3-BBEB-DC569BBC323A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0C90FDC-40D8-40E3-BBEB-DC569BBC323A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

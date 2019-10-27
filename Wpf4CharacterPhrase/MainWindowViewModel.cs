@@ -24,21 +24,11 @@ namespace Wpf4CharacterPhrase
 
         private void BordClick(object entity)
         {
-            var cell = (CellEntity)entity;
+            Bord.Value.Click((CellEntity)entity);
 
-            if (Bord.Value.IsFourSelecting() == true && cell.Status !=  CellStatus.Selecting) return;
-
-            cell.ChangeStatus();
             Bord.Value = Bord.Value.DeepCopy();
 
-            if (Bord.Value.IsFourSelecting() == false) return;
-
-            if (Bord.Value.IsCorrectAnswer() == false) return;
-
-            Bord.Value.ChangeCellsStatusSelectingToCompleted();
-            Bord.Value = Bord.Value.DeepCopy();
-
-            if (Bord.Value.Cells.Where(m => m.Status != CellStatus.Completed).Count() == 0)
+            if (Bord.Value.IsCompleted() == true)
             {
                 MessageBox.Show("Completed");
             }
